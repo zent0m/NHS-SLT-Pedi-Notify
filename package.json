@@ -1,0 +1,36 @@
+{
+  "name": "nhs-slt-pedi-notify",
+  "version": "1.0.0",
+  "description": "Monitor NHS Jobs for pediatric Speech & Language Therapist Band 5 positions",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:schedule": "node dist/index.js schedule",
+    "dev": "ts-node src/index.ts",
+    "dev:schedule": "ts-node src/index.ts schedule",
+    "test:notify": "ts-node src/testNotify.ts",
+    "reset:db": "ts-node src/resetDb.ts"
+  },
+  "keywords": ["nhs", "jobs", "speech therapist", "pediatric", "monitor"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.14.0",
+    "better-sqlite3": "^12.8.0",
+    "dotenv": "^17.4.0",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^8.0.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.5.0",
+    "@types/node-cron": "^3.0.11",
+    "@types/nodemailer": "^7.0.11",
+    "@types/xml2js": "^0.4.14"
+  }
+}
