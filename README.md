@@ -1,40 +1,28 @@
 # NHS SLT Pediatric Job Monitor
 
-Monitors NHS Jobs for Band 5 Speech & Language Therapist positions in pediatrics.
+An automated job monitoring service that checks NHS Jobs for Band 5 Speech & Language Therapist positions in pediatric settings.
 
-## Setup
+## How it works
 
-```bash
-npm install
-npm run build
-```
+The app fetches all Band 5 SLT jobs from the NHS Jobs API, filters for positions involving children (by scanning job descriptions for keywords like "children", "paediatric", "early years", etc.), calculates driving distances from Birmingham and Nottingham, and sends email notifications when new pediatric roles appear.
 
-## Config (.env)
+## Features
 
-```env
-EMAIL_ENABLED=true
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=app-password
-EMAIL_FROM=your-email@gmail.com
-EMAIL_TO=your-email@gmail.com
-CRON_EXPRESSION=0 9,18 * * *
-```
+- Fetches jobs from NHS Jobs API (all pages)
+- Filters for SLT roles with pediatric focus
+- Calculates real distances using OpenStreetMap/OSRM
+- Caches geocoding results for performance
+- Sends email to multiple recipients
+- Persists job history to avoid duplicate notifications
+- Configurable cron schedule
 
-Get Gmail app password at: https://myaccount.google.com/apppasswords
+## Tech Stack
 
-## Run
-
-```bash
-npm start           # run once
-npm run start:schedule  # run on cron schedule
-npm run reset:db   # clear database
-```
-
-## Deploy
-
-Push to GitHub → Deploy on Render as Web Service.
+- TypeScript / Node.js
+- SQLite-like JSON file storage
+- Nominatim + OSRM for geocoding & routing
+- Nodemailer for emails
+- node-cron for scheduling
 
 ---
 
