@@ -69,6 +69,7 @@ export class NotificationService {
 
   private formatEmailBody(jobs: Job[]): string {
     let html = `
+      <h1>Hi, Alexandrea. I love you!<h1>
       <h2>New Pediatric SLT Band 5 Job${jobs.length > 1 ? "s" : ""} Found!</h2>
       <p>${jobs.length} new pediatric Speech & Language Therapist Band 5 position${jobs.length > 1 ? "s" : ""} available:</p>
       <hr>
