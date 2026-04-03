@@ -10,4 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Render service
-        run: curl -s -o /dev/null -w "%{http_code}" ${{ secrets.RENDER_URL }}
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$RENDER_URL")
+          echo "Response: $STATUS"
+        env:
+          RENDER_URL: ${{ secrets.RENDER_URL }}
